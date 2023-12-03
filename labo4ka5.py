@@ -20,7 +20,8 @@ class Party:
         self.reason = reason
         self.guests = guests
 
-    def FindAverageAge(self, gender):
+    def find_average_age(self, gender):
+
         total_age = 0
         count = 0
         for guest in self.guests:
