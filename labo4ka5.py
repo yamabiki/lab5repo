@@ -36,20 +36,28 @@ class Party:
     def is_lucky_phone_number(self, phone_number):
         return str(phone_number).count('7') >= 3
 
-guest1 = Guest(1, "Michael", 22, "Kyiv", "123456789", Gender.MALE)
-guest2 = Guest(2, "Aleka", 19, "Lviv", "777123456", Gender.FEMALE)
-guest3 = Guest(3, "Vladik", 22, "Odessa", "666777888", Gender.NON_BINARY)
-guest4 = Guest(4, "Bob", 20, "Lviv", "666777999", Gender.MALE)
 
-party = Party("2023-11-16", "Birthday Party", [guest1, guest2, guest3, guest4])
+def print_sorted_guests(self):
+        sorted_guests = sorted(self.guests, key=lambda x: x.id)
+        print("Сортовані гості за ID:")
+        for guest in sorted_guests:
+            print(f"ID: {guest.id}, Name: {guest.name}, Age: {guest.age}, Gender: {guest.gender}")
 
-average_age_male = party.FindAverageAge(Gender.MALE)
-print(f"Середній вік чоловіків на вечірці: {average_age_male}")
+def main():
+    guest1 = Guest(1, "Michael", 22, "Kyiv", "123456789", Gender.MALE)
+    guest2 = Guest(2, "Aleka", 19, "Lviv", "777123456", Gender.FEMALE)
+    guest3 = Guest(3, "Vladik", 22, "Odessa", "666777888", Gender.NON_BINARY)
+    guest4 = Guest(4, "Bob", 20, "Lviv", "666777999", Gender.MALE)
 
-lucky_phone_number = party.is_lucky_phone_number(guest2.phone_number)
-print(f"Чи номер щасливий? : {lucky_phone_number}")
+    party = Party("2023-11-16", "Birthday Party", [guest1, guest2, guest3, guest4])
 
-sorted_guests = sorted(party.guests, key=lambda x: x.id)
-print("Сортовані гості за ID:")
-for guest in sorted_guests:
-    print(f"ID: {guest.id}, Name: {guest.name}, Age: {guest.age}, Gender: {guest.gender}")
+    average_age_male = party.find_average_age(Gender.MALE)
+    print(f"Середній вік чоловіків на вечірці: {average_age_male}")
+
+    lucky_phone_number = party.is_lucky_phone_number(guest2.phone_number)
+    print(f"Чи номер щасливий? : {lucky_phone_number}")
+
+    party.print_sorted_guests()
+
+if __name__ == "__main__":
+    main()
