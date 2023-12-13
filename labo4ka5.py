@@ -37,11 +37,11 @@ class Party:
         return str(phone_number).count('7') >= 3
 
 
-def print_sorted_guests(self):
-        sorted_guests = sorted(self.guests, key=lambda x: x.id)
-        print("Сортовані гості за ID:")
-        for guest in sorted_guests:
-            print(f"ID: {guest.id}, Name: {guest.name}, Age: {guest.age}, Gender: {guest.gender}")
+    def print_sorted_guests(self):
+            sorted_guests = sorted(self.guests, key=lambda x: x.id)
+            print("Сортовані гості за ID:")
+            for guest in sorted_guests:
+                print(f"ID: {guest.id}, Name: {guest.name}, Age: {guest.age}, Gender: {guest.gender}")
 
 def main():
     guest1 = Guest(1, "Michael", 22, "Kyiv", "123456789", Gender.MALE)
